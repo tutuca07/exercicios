@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="folha.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    <table border="1" width="300" height="300">
+        <tr height="30">
+                <td>Cidade</td>
+                <td>Estado</td>
+                <td>Numero de Habitantes</td>
+        </tr>
+        <tr>
+                <td>Sorocaba</td>
+                <td>Sao Paulo</td>
+                <td>695.000</td>
+        </tr>
+        <tr>
+                <td>Buituva</td>
+                <td>Sao Paulo</td>
+                <td>62.000</td>
+        </tr>
+        <tr>
+                <td>rio Preto</td>
+                <td>Sao Paulo</td>
+                <td>494.983</td>
+        </tr>
+        <tr>
+                <td>Embu da Artes</td>
+                <td>Sao Paulo</td>
+                <td>265.000</td>
+        </tr>
+        <tr>
+                <td>Apiai</td>
+                <td>Sao Paulo</td>
+                <td>695.000</td>
+        </tr>
+    </table>
+
+
+        <hr>
+
+    <table class="tabelacss">
+        <tr>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>N° Habitantes</th>
+        </tr>
+    
+        <tr>
+            <td>Sorocaba</td>
+            <td>Sao Paulo</td>
+            <td>695.000</td>
+    </tr>
+    <tr>
+            <td>Buituva</td>
+            <td>Sao Paulo</td>
+            <td>62.000</td>
+    </tr>
+    <tr>
+            <td>rio Preto</td>
+            <td>Sao Paulo</td>
+            <td>494.983</td>
+    </tr>
+    <tr>
+            <td>Embu da Artes</td>
+            <td>Sao Paulo</td>
+            <td>265.000</td>
+    </tr>
+    <tr>
+            <td>Apiai</td>
+            <td>Sao Paulo</td>
+            <td>695.000</td>
+    </tr>
+</table>
+    
+    </table>
+</body>
+</html>
