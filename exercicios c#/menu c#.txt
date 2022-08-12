@@ -1,0 +1,238 @@
+using System;
+
+namespace bartolomeo_mk3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int opçao;
+            do
+            {
+                Console.BackgroundColor = ConsoleColor.DarkCyan;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Clear();
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine(new string('═', 120));// todos 120 falham em tela cheia
+                Console.SetCursorPosition(50, 1);
+                Console.WriteLine("menu principal");
+                Console.SetCursorPosition(0, 2);
+                Console.WriteLine(new string('═', 120));
+                Console.SetCursorPosition(25, 3);
+                Console.WriteLine("[1]cauculos");
+                Console.SetCursorPosition(25, 4);
+                Console.WriteLine("[2]extenso 0-1000");
+                Console.SetCursorPosition(25, 5);
+                Console.WriteLine("[3]subtraçao inf");
+                Console.SetCursorPosition(25, 6);
+                Console.WriteLine("[4]vetores");
+                Console.SetCursorPosition(25, 7);
+                Console.WriteLine("[5]fim");
+                Console.SetCursorPosition(0, 8);
+                // 2) receber escolha
+                Console.WriteLine(new string('═', 120));
+                Console.SetCursorPosition(50, 8);
+                Console.WriteLine("digite sua opçao:");
+                Console.WriteLine(new string('═', 120));
+                Console.SetCursorPosition(67, 8);
+                opçao = int.Parse(Console.ReadLine());
+                // 3) decisao
+                switch (opçao)
+                {
+                    case 1:
+                        {
+                            cauculos();
+                            break;
+                        }
+                    case 2:
+                        {
+                            extenso();
+                            break;
+                        }
+                    case 3:
+                        {
+                            subtraçaoInf();
+                            break;
+                        }
+                    case 4:
+                        {
+                            vetores();
+                            break;
+
+                        }
+                    case 5:
+                        {
+                            break;
+                        }
+                    default:
+                        Console.SetCursorPosition(20, 10);
+                        Console.WriteLine("invalido");
+                        Console.ReadKey();
+                        break;
+                }
+            } while (opçao != 5);
+        }//abaixo
+        static void cauculos()
+        {
+            Console.Clear();
+            Console.WriteLine("inciar?   s/n");
+            string vResp = Console.ReadLine();
+            while (vResp == "sim" || vResp == "s")
+            {
+                int n1, n2, nR;
+                string operaçao;
+                Console.WriteLine("primeiro numero");
+                n1 = int.Parse(Console.ReadLine());
+                Console.WriteLine("segundo numero");
+                n2 = int.Parse(Console.ReadLine());
+                Console.WriteLine("soma subtraçao multiplicaçao divisao ou potencia (sem acentos e minuscula)");
+                operaçao = Console.ReadLine();
+                if (operaçao == "soma")
+                {
+                    nR = n1 + n2;
+                    Console.WriteLine(n1 + " + " + n2 + " = " + nR);
+                }
+                else if (operaçao == "subtraçao")
+                {
+                    nR = n1 - n2;
+                    Console.WriteLine(n1 + " - " + n2 + " = " + nR);
+                }
+                else if (operaçao == "multiplicaçao")
+                {
+                    nR = n1 * n2;
+                    Console.WriteLine(n1 + " X " + n2 + " = " + nR);
+                }
+                else if (operaçao == "divisao")
+                {
+                    nR = n1 / n2;
+                    Console.WriteLine(n1 + " / " + n2 + "=" + nR);
+                }
+                else if (operaçao == "potencia")
+                {
+                    int n1D, n2D;
+                    n1D = n1;
+                    n2D = n2;
+                    n2D--;
+                    while (n2D != 0)
+                    {
+                        n1D = n1D * n1;
+                        n2D--;
+                    }
+                    Console.WriteLine(n1 + " ^ " + n2 + " = " + n1D);
+                }
+
+
+                Console.WriteLine("reinciar?   s/n");
+                vResp = Console.ReadLine();
+                Console.Clear();
+            }
+        }
+        static void extenso()
+        {
+            Console.Clear();
+            string[] uni = { "zero", "um", "dois", "tres", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezeseis","Dezesete", "dezoito", "dezenove" };
+            string[] dez = { "", "", "vinte", "trinta", "quarenta", "cinquenta", "sesenta", "setenta", "oitenta", "noventa", "cem" };
+            string[] cem = { "", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seicentos", "setecentos", "oitocentos", "novecentos", "mil" };
+            int n, ne, nd, n3, bug;
+            Console.WriteLine("escreva um numero de 0 a 1000 e o direi por extenso");
+            n = int.Parse(Console.ReadLine());
+            if (n < 0 || n > 1000) { Console.WriteLine("fora da faixa"); }
+            else if (n == 0 || n < 20) { Console.Write(uni[n]); }
+            else if (n <= 100)
+            {
+                ne = n / 10;
+                nd = n % 10;
+                Console.Write(dez[ne]);
+                if (nd > 0) { Console.Write(" e " + uni[nd]); }
+                else if (nd == 100) { Console.Write("cem"); }
+            }
+            else if (n > 100 && n < 1000)
+            {
+                ne = n / 10;
+                nd = n % 10;
+                n3 = n / 100;
+                bug = n - n3 * 100;
+                ne = ne - n3 * 10;
+                Console.Write(cem[n3]);
+                if (ne == 0 && bug < 10) { Console.Write(" e " + uni[nd]); }
+                else if (bug == 10) { Console.Write(" e " + uni[bug]); }
+                else if (bug > 10 && bug < 20) { Console.WriteLine(" e " + uni[bug]); }
+                else if (ne > 0) { Console.Write(" e " + dez[ne]); Console.Write(" e " + uni[nd]); }
+            }
+            else { Console.Write("mil"); }
+            Console.ReadKey();
+        }
+        static void subtraçaoInf()
+        {
+            Console.Clear();
+            int n1;
+            Console.WriteLine("valor para subtraçao inf");
+            n1 = int.Parse(Console.ReadLine());
+            while (n1 >= 0)
+            {
+                Console.WriteLine(n1);
+                n1--;
+            }
+            Console.ReadKey();
+        }
+        static void vetores()
+        {
+            int opçaoVetor;
+            do
+            {
+                Console.Clear();
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine(new string('_', 120));// todos 120 falham em tela cheia
+                Console.SetCursorPosition(50, 1);
+                Console.WriteLine("menu principal");
+                Console.SetCursorPosition(0, 2);
+                Console.WriteLine(new string('═', 120));
+                Console.SetCursorPosition(25, 3);
+                Console.WriteLine("[1]vetor 1");
+                Console.SetCursorPosition(25, 4);
+                Console.WriteLine("[2]extenso");
+                Console.SetCursorPosition(25, 5);
+                Console.WriteLine("[3]vetor 3");
+                Console.SetCursorPosition(25, 6);
+                Console.WriteLine("[4]fim");
+                Console.SetCursorPosition(0, 7);
+                // 2) receber escolha
+                Console.WriteLine(new string('_', 120));
+                Console.SetCursorPosition(50, 8);
+                Console.WriteLine("digite sua opçao:");
+                Console.WriteLine(new string('═', 120));
+                Console.SetCursorPosition(67, 8);
+                opçaoVetor = int.Parse(Console.ReadLine());
+                switch (opçaoVetor)
+                {
+                    case 1:
+                        {
+                            vetor1();
+                            break;
+                        }
+                    case 2:
+                        {
+                            extenso();
+                            break;
+                        }
+                    case 3:
+                        {
+                            vetor3();
+                            break;
+                        }
+                    case 4:
+                        {
+                            break;
+
+                        }
+                }
+            } while (opçaoVetor != 4);
+        }
+        static void vetor1() {
+
+        }
+        static void vetor3() {
+            String[,] estado;
+        }
+    }//acima
+}//mais acima 
