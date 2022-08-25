@@ -1,0 +1,20 @@
+        static void sorteia()
+        {
+            Random rnd = new Random();
+            bool fim = false;
+            int ns = rnd.Next(1, 20);
+            int chute,nchutes=0;
+            Console.Clear();
+
+            do
+            {
+                Console.WriteLine("chute um numero e direi se é maior ou menor e você tenta acha-lo\n");
+                chute = int.Parse(Console.ReadLine());
+                nchutes++;
+                if (chute < ns) { Console.WriteLine("maior"); }
+                else if (chute > ns) { Console.WriteLine("menor"); }
+                else if (chute == ns) { fim = true;Console.WriteLine("acertou em "+ nchutes + " tentativas"); }
+                else if (chute == null) { Console.WriteLine("escreva um numero"); }
+                Console.ReadKey();
+            } while (fim == false);
+        }
